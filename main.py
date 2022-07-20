@@ -1,4 +1,5 @@
 import requests
+import random
 
 url = requests.get('https://ru.wikipedia.org/wiki/ArXiv.org')
 
@@ -9,9 +10,9 @@ def save_page(page):
     :param page: содержимое страницы
     :return:
     """
-
+    num = random.randint(1, 100)
     try:
-        with open('index.html', 'w', encoding='utf-8') as f:
+        with open(f'index{num}.html', 'w', encoding='utf-8') as f:
             f.write(page)
     except Exception as e:
         print(e)
